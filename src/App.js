@@ -65,6 +65,7 @@ function App () {
 
         { !user && (<RegistreForm onclickJoin={ onclickJoin } />) }
         { !connected && (<div className='text-center pt-5 text-red-600 text-[10px]'> please set your nickname to start chatting</div>) }
+        { !connected && (<div className='text-center pt-5 text-red-600 text-[10px]'> connected with server { process.env.REACT_APP_SERVER_URL }</div>) }
         { connected && user && (
           <UserContext.Provider value={ user }>
             <div className='flex justify-center items-center  h-96'>
