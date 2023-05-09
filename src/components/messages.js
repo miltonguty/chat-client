@@ -2,12 +2,14 @@ import { useContext, useEffect, useState } from "react"
 import { UserContext } from "../App";
 
 const Messages = ({ message }) => {
-    const [messages, setMessage] = useState([])
+    const [messages, setMessages] = useState([])
     const user = useContext(UserContext);
     useEffect(() => {
-        if (message)
-            setMessage([...messages, message])
-    }, [message])
+        if (message) {
+            const msg = [...messages, message]
+            setMessages(msg)
+        }
+    }, [message, messages])
     return (
         <>
             {
