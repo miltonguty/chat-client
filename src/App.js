@@ -57,25 +57,32 @@ function App () {
   }, [])
   return (
     <>
-      <header className="App-header min-h-screen">
-        <center><img src={ logo } className=" w-32" alt="logo" /></center>
+      <header className="App-header min-h-screen mt-5 ">
+        { !connected && !user && (<>
+          <center><img src={ logo } className=" w-32" alt="logo" /></center>
+          <center><h1 className="text-3xl font-bold underline pb-5"> Guty-Chat</h1></center>
+        </>
+        )
+        }
+        { connected && user && (<div className='p-5'>
 
-        <center><h1 className="text-3xl font-bold underline pb-5"> Guty-Chat</h1></center>
-
-
+          <center> <div className=" inline-block text-3xl font-bold  pb-5 "> Guty</div> <img src={ logo } className="inline-block w-24 -mt-10 " alt="logo" /><div className='inline-block text-3xl font-bold  pb-5'>Chat</div></center>
+        </div>
+        )
+        }
         { !user && (<RegistreForm onclickJoin={ onclickJoin } />) }
         { !connected && (<div className='text-center pt-5 text-red-600 text-[10px]'> please set your nickname to start chatting</div>) }
         { !connected && (<div className='text-center pt-5 text-red-600 text-[10px]'> connected with server { process.env.REACT_APP_SERVER_URL }</div>) }
         { connected && user && (
           <UserContext.Provider value={ user }>
-            <div className='flex justify-center items-center  h-96'>
+            <div className='w-full md:flex md:justify-center md:items-center md:hmd:-96'>
               <ChatForm ListUser={ ListUser } message={ message } handleOnclickSendMessage={ handleOnclickSendMessage } handleOnCloseSession={ handleOnCloseSession } />
             </div>
           </UserContext.Provider>
         ) }
 
 
-      </header>
+      </header >
 
     </>
   );

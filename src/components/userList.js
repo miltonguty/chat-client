@@ -1,7 +1,7 @@
 const UserList = ({ users = [] }) => {
 
     return (
-        <div className="bg-slate-100  overflow-y-auto h-96 ">
+        <div className="bg-slate-100  overflow-y-auto ">
             <center><h1 className="bg-slate-400 p-3">User Connected</h1></center>
             <hr></hr>
             <div className=" py-3">

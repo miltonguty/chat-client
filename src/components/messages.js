@@ -9,7 +9,7 @@ const Messages = ({ message }) => {
             const msg = [...messages, message]
             setMessages(msg)
         }
-    }, [message, messages])
+    }, [message])
     return (
         <>
             {
